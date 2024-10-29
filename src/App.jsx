@@ -10,7 +10,7 @@ export default function App() {
         <Navbar/>
       </div>
       <div className="flex justify-center content-container bg-purple-50 min-h-screen ">
-        <div className="mainContent bg-violet-200 min-h-full w-3/5 min-w-[700px] rounded-xl m-3">
+        <div className="mainContent bg-violet-200 min-h-full md:w-3/5 md:min-w-[700px] rounded-xl m-3">
           <Form/>
         </div>
       </div>

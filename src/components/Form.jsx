@@ -68,11 +68,11 @@ const Form = () => {
   return (
     <>
       <div className="formContainer">
-        <div className="form flex  flex-col p-7">
-          <h1 className="font-bold text-center text-3xl">iTask - Manage Your Todo List at One Place</h1>
+        <div className="form flex  flex-col p-3 sm:p-7">
+          <h1 className="font-bold text-center text-xl md:text-3xl">iTask - Manage Your Todo List at One Place</h1>
           <div className="AddTodo p-5 px-0 flex gap-4 flex-col ">
             <div className="heading">
-              <span className="text-2xl font-bold">Add Task</span>
+              <span className="text-lg md:text-xl font-bold">Add Task</span>
             </div>
             <div className="input gap-3 flex">
               <input
@@ -88,23 +88,23 @@ const Form = () => {
               />
               <button
                 onClick={handleAdd}
-                className="bg-violet-800 text-white px-4 py-1 rounded-md hover:bg-violet-950 max-h-10"
+                className="bg-violet-800 text-white overflow-hidden sm:px-4 sm:py-1 md:w-1/6 w-1/3 rounded-md hover:bg-violet-950 max-h-10 max-w-[200px]"
               >
-                <span className="p-2">
+                <label className=" text-[0.8em] md:p-2 sm:text-[0.8em]">
                   {taskid ? "Update Task" : "Add Task"}
-                </span>
+                </label>
               </button>
             </div>
           </div>
-          <div className="finished flex gap-2 font-semibold text-xl py-3">
+          <div className="finished flex gap-2 font-semibold text-lg md:text-xl py-3">
           <input type="checkbox" checked = {showFinished} onChange = {()=> {handleFinish()}}  /> 
                 Show Finished Tasks
           </div>
           <div className="YourTodo flex gap-4 flex-col">
             <div className="Title">
-              <span className="text-2xl font-bold">Your Todo</span>
+              <span className="text-lg md:text-xl font-bold">Your Todo</span>
             </div>
-            <div className="todoList bg-purple-50 w-11/12 rounded-lg">
+            <div className="todoList bg-purple-50 w-11/12 w- rounded-lg">
               {tasks.map((item) => (
                 (showFinished || !item.isCompleted) && <div key={item.id} className="todoCard flex gap-4 w-full p-2">
                   <input
@@ -117,7 +117,7 @@ const Form = () => {
                   <div className="tasklist flex text-xl gap-1">
                     <div
                       ref={taskRef}
-                      className={`task text-xl ${
+                      className={`task text-[0.8em] md:text-lg ${
                         item.isCompleted ? "line-through" : ""
                       }`}
                     >{` ${item.task}`}</div>
@@ -127,7 +127,7 @@ const Form = () => {
                       onClick={() => {
                         item.isCompleted ? null : handleEdit(item);
                       }}
-                      className="edit bg-violet-800 text-white px-4 py-1 max-h-8 rounded-md hover:bg-violet-950"
+                      className="edit bg-violet-800 text-white px-4 py-1 max-h-8 rounded-md hover:bg-violet-950 text-sm"
                     >
                       Edit
                     </button>
@@ -135,7 +135,7 @@ const Form = () => {
                       onClick={() => {
                         handleDelete(item.id);
                       }}
-                      className="Delete bg-violet-800 text-white px-4 py-1 max-h-8 rounded-md hover:bg-violet-950"
+                      className="Delete bg-violet-800 text-white px-4 py-1 max-h-8 rounded-md hover:bg-violet-950 text-sm"
                     >
                       Delete
                     </button>
